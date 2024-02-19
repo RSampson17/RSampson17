@@ -92,6 +92,7 @@ WHERE healthcare_benefits=1
 AND paid_time_off_days = 20
 OR maternity_leave_weeks > 10;
 
+
 /*Aggregate Function (SUM):
 Question: Calculate the total number of employees in the "Technology" industry and the "Healthcare" industry. Present the result in a single row with two columns - one for each industry.*/
 
@@ -105,6 +106,7 @@ FROM fortune_companies;
 
 /*Aggregate Function (AVG) and Logical Operator (AND):
 Question: Find the average revenue of companies in the "Retail" industry that have more than 5,000 employees AND provide healthcare benefits. Display the result along with the count of such companies.*/
+
 
 SELECT avg(revenue), COUNT(*) 
 FROM fortune_companies
