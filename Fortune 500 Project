@@ -1,59 +1,3 @@
-##I was given the table "fortune_companies" and asked to write code to asnwer the following 5 questions with a focus on a specific SQL area
-
-/*CASE Statement:
-Question: Can you create a query that groups companies into three categories based on their revenue using a CASE statement, and then display the count of companies in each category?*/
-
-SELECT COUNT(*) AS company_count,
-CASE WHEN revenue >= 400 THEN "High_Revenue"
-WHEN revenue >= 300 THEN "Average_Revenue"
-WHEN revenue <300 THEN "Low_Revenue"
-ELSE 0
-END AS revenue_category
-FROM fortune_companies
-GROUP BY revenue_category;
-
-
-/*HAVING Clause:
-Question: Using a HAVING clause, find the industries where the average employee tenure is higher than 6 years, and display the industry names along with the average tenure.*/
-
-SELECT avg_employee_tenure, industry
-FROM fortune_companies
-GROUP BY industry
-HAVING avg_employee_tenure > 6;
-
-
-/*Logical Operators (AND, OR):
-Question: Retrieve a list of companies that provide healthcare benefits AND have more than 20 paid time off days OR more than 10 maternity leave weeks. Display the company names and relevant details.*/
-
-SELECT company_name, industry, revenue, employees, healthcare_benefits, paid_time_off_days, maternity_leave_weeks, avg_employee_tenure
-FROM fortune_companies
-WHERE healthcare_benefits=1 
-AND paid_time_off_days = 20
-OR maternity_leave_weeks > 10;
-
-/*Aggregate Function (SUM):
-Question: Calculate the total number of employees in the "Technology" industry and the "Healthcare" industry. Present the result in a single row with two columns - one for each industry.*/
-
-SELECT SUM(CASE WHEN industry = "Technology" THEN employees
-          ELSE 0
-           END) AS technology_employees,
-       SUM(CASE WHEN industry = "Healthcare" THEN  employees
-           ELSE 0
-           END) AS healthcare_employees
-FROM fortune_companies;
-
-/*Aggregate Function (AVG) and Logical Operator (AND):
-Question: Find the average revenue of companies in the "Retail" industry that have more than 5,000 employees AND provide healthcare benefits. Display the result along with the count of such companies.*/
-
-SELECT avg(revenue), COUNT(*) 
-FROM fortune_companies
-WHERE industry = "Retail" 
-AND employees >5000
-AND healthcare_benefits = 1;
-
-
-
-
 CREATE TABLE fortune_companies (
     company_id INTEGER PRIMARY KEY,
     company_name TEXT,
@@ -111,3 +55,59 @@ VALUES
     ('Company II', 'Telecommunications', 110.5, 2000, 1, 21, 12, 4.9),
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
+
+
+
+
+/*I was given the table "fortune_companies" and asked to write code to asnwer the following 5 questions with a focus on a specific SQL area*/
+
+/*CASE Statement:
+Question: Can you create a query that groups companies into three categories based on their revenue using a CASE statement, and then display the count of companies in each category?*/
+
+SELECT COUNT(*) AS company_count,
+CASE WHEN revenue >= 400 THEN "High_Revenue"
+WHEN revenue >= 300 THEN "Average_Revenue"
+WHEN revenue <300 THEN "Low_Revenue"
+ELSE 0
+END AS revenue_category
+FROM fortune_companies
+GROUP BY revenue_category;
+
+
+/*HAVING Clause:
+Question: Using a HAVING clause, find the industries where the average employee tenure is higher than 6 years, and display the industry names along with the average tenure.*/
+
+SELECT avg_employee_tenure, industry
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_employee_tenure > 6;
+
+
+/*Logical Operators (AND, OR):
+Question: Retrieve a list of companies that provide healthcare benefits AND have more than 20 paid time off days OR more than 10 maternity leave weeks. Display the company names and relevant details.*/
+
+SELECT company_name, industry, revenue, employees, healthcare_benefits, paid_time_off_days, maternity_leave_weeks, avg_employee_tenure
+FROM fortune_companies
+WHERE healthcare_benefits=1 
+AND paid_time_off_days = 20
+OR maternity_leave_weeks > 10;
+
+/*Aggregate Function (SUM):
+Question: Calculate the total number of employees in the "Technology" industry and the "Healthcare" industry. Present the result in a single row with two columns - one for each industry.*/
+
+SELECT SUM(CASE WHEN industry = "Technology" THEN employees
+          ELSE 0
+           END) AS technology_employees,
+       SUM(CASE WHEN industry = "Healthcare" THEN  employees
+           ELSE 0
+           END) AS healthcare_employees
+FROM fortune_companies;
+
+/*Aggregate Function (AVG) and Logical Operator (AND):
+Question: Find the average revenue of companies in the "Retail" industry that have more than 5,000 employees AND provide healthcare benefits. Display the result along with the count of such companies.*/
+
+SELECT avg(revenue), COUNT(*) 
+FROM fortune_companies
+WHERE industry = "Retail" 
+AND employees >5000
+AND healthcare_benefits = 1;
