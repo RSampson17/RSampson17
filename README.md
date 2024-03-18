@@ -15,5 +15,5 @@ Project Name  | Description   |  Topic
 ------------- | ------------- | ------------------
 [**Chinook**](https://github.com/RSampson17/SQL/tree/main/Chinook):  | Wrote SQL queries to answer questions about various business inquries related to the Chinook dataset  | data manipulation, importing and cleaning data
 [**JOINS - HR Data**](https://github.com/RSampson17/SQL/blob/main/JOINS%20-%20HR%20Data): | Wrote SQL queries to answer questions about the data foudn within the HR Data dataset | data manipulation, cleaning data, and joins
-[**Fortune 500 Project**](https://github.com/RSampson17/SQL/blob/main/Fortune%20500%20Project):  |  One of my first projects. Wrote SQL queries for 1 CASE, 1 HAVING, 1 LOGICAL OPERATOR, AND 2 AGGREGATE questions  |  data manipulation
+[**Fortune 500 Project**](https://github.com/RSampson17/SQL/tree/main/Fortune%20500):  |  One of my first projects. Wrote SQL queries for 1 CASE, 1 HAVING, 1 LOGICAL OPERATOR, AND 2 AGGREGATE questions  |  data manipulation
 [**Superstore Project**](https://github.com/RSampson17/SQL/blob/main/Superstore%20Database):  |  Evaluated customer and order data within the Superstore dataset and wrote SQL queries to explore these topics  |  data manipulation
