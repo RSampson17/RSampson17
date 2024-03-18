@@ -2,8 +2,6 @@
 This project was completed as a final project to demonstrate skills aquired during the Break Into Tech Bootcamp. 
 
 ## Requirements
-Use the [Chinook Database](https://github.com/lerocha/chinook-database/blob/master/ChinookDatabase/DataSources/Chinook_Sqlite.sql).
-
 For each of the following exercises, provide the appropriate query.
 
 1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
