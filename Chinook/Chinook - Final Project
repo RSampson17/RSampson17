@@ -1,20 +1,16 @@
---This is the code I wrote as part of my final project for the SQL portion of the "Break Into Tech" program. Below you will find the question asked and the code I wrote to provide the answer. 
-The tables used for this project can be found at: https://github.com/lerocha/chinook-database/blob/master/ChinookDatabase/DataSources/Chinook_Sqlite.sql
-
-
-/*Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").*/
+1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
 SELECT CustomerID, FirstName, LastName, Country
 FROM chinook.customers
 WHERE Country <> "USA";
 
 
-/*Show only the Customers from Brazil.*/
+2. Show only the Customers from Brazil.
 SELECT *
 FROM chinook.customers
 WHERE Country = "Brazil";
 
 
-/*Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.*/
+3. Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
 SELECT customers.FirstName, customers.LastName, invoices.InvoiceID, invoices.InvoiceDate, invoices.BillingCountry
 FROM chinook.customers
 LEFT JOIN chinook.invoices
@@ -22,17 +18,18 @@ ON customers.CustomerID = invoices.CustomerID
 WHERE invoices.billingcountry = "Brazil";
 
 
-/*Show the Employees who are Sales Agents.*/
+4. Show the Employees who are Sales Agents.
 SELECT *
 FROM chinook.employees
 WHERE Title = "Sales Support Agent";
 
 
-/*Find a unique/distinct list of billing countries from the Invoice table.*/
+5. Find a unique/distinct list of billing countries from the Invoice table.
 SELECT DISTINCT billingcountry
 FROM chinook.invoices;
 
-/*Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.*/
+
+6. Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
 SELECT Firstname, Lastname, InvoiceID
 from chinook.employees
 JOIN chinook.customers
@@ -40,7 +37,8 @@ ON employees.employeeid = customers.SupportRepId
 JOIN chinook.invoices
 ON customers.customerid = invoices.customerid;
 
-/*Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.*/
+
+7. Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.
 SELECT customers.FirstName, customers.LastName, customers.Country, employees.FirstName, employees.LastName, employees.Title, invoices.total
 FROM chinook.employees
 JOIN chinook.customers
@@ -49,26 +47,26 @@ JOIN chinook.invoices
 ON customers.customerid = invoices.customerid;
 
 
-/*How many Invoices were there in 2009?*/
+8. How many Invoices were there in 2009?
 SELECT COUNT(*)
 FROM chinook.invoices
 WHERE InvoiceDate between "2009-01-01" AND "2009-12-31";
 
 
-/*What are the total sales for 2009?*/
+9. What are the total sales for 2009?
 SELECT SUM(total)
 FROM chinook.invoices
 WHERE InvoiceDate between "2009-01-01" AND "2009-12-31";
 
 
-/*Write a query that includes the purchased track name with each invoice line ID.*/
+10. Write a query that includes the purchased track name with each invoice line ID.
 SELECT tracks.name, invoice_items.InvoiceLineId
 FROM chinook.invoice_items
 JOIN chinook.tracks
 ON invoice_items.TrackId = tracks.TrackId;
 
 
-/*Write a query that includes the purchased track name AND artist name with each invoice line ID.*/
+11. Write a query that includes the purchased track name AND artist name with each invoice line ID.
 SELECT tracks.name, artists.Name, invoice_items.InvoiceLineId
 FROM chinook.invoice_items
 LEFT JOIN chinook.tracks
@@ -79,7 +77,7 @@ JOIN artists
 ON albums.ArtistId = artists.ArtistId;
 
 
-/*Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.*/
+12. Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
 SELECT tracks.name, albums.title, media_types.Name, genres.Name
 FROM chinook.tracks
  JOIN chinook.albums
@@ -90,8 +88,7 @@ ON tracks.MediaTypeId = media_types.MediaTypeId
 ON tracks.GenreId = genres.GenreId;
 
 
-/*Show the total sales made by each sales agent.*/
-
+13.Show the total sales made by each sales agent.
 SELECT employees.FirstName, employees.LastName, ROUND(SUM(invoices.Total),2)
 FROM chinook.employees
 JOIN chinook.customers
@@ -102,7 +99,7 @@ WHERE employees.title = "Sales Support Agent"
 GROUP BY employees.FirstName;
 
 
-/*Which sales agent made the most dollars in sales in 2009?*/
+14. Which sales agent made the most dollars in sales in 2009?
 SELECT employees.FirstName, employees.LastName, ROUND(SUM(invoices.Total),2)
 FROM chinook.employees
 JOIN chinook.customers
