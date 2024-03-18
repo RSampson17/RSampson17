@@ -1,4 +1,20 @@
-![MYSQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![SQLITE](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
-![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-![Hackerrank](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)
+
+## Requirements
+Use the [Chinook Database](https://chinookdatabase.codeplex.com/) and the [DB Browser for SQLite](http://sqlitebrowser.org/).
+
+For each of the following exercises, provide the appropriate query.
+
+1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+2. Show only the Customers from Brazil.
+3. Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+4. Show the Employees who are Sales Agents.
+5. Find a unique/distinct list of billing countries from the Invoice table.
+6. Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
+7. Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.
+8. How many Invoices were there in 2009?
+9. What are the total sales for 2009?
+10. Write a query that includes the purchased track name with each invoice line ID.
+11. Write a query that includes the purchased track name AND artist name with each invoice line ID.
+12. Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+13. Show the total sales made by each sales agent.
+14. Which sales agent made the most dollars in sales in 2009?Provide a query only showing the Customers from Brazil.
