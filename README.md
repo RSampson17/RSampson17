@@ -17,3 +17,7 @@ Project Name  | Description   |  Topic
 [**Fortune 500 Project**](https://github.com/RSampson17/SQL/tree/main/Fortune%20500):  |  One of my first projects. Wrote SQL queries for 1 CASE, 1 HAVING, 1 LOGICAL OPERATOR, AND 2 AGGREGATE questions  |  data manipulation
 [**HR Data**](https://github.com/RSampson17/SQL/tree/main/HR%20Data): | Wrote SQL queries to answer questions about the data foudn within the HR Data dataset | data manipulation, cleaning data, and joins
 [**Superstore Project**](https://github.com/RSampson17/SQL/tree/main/Superstore):  |  Evaluated customer and order data within the Superstore dataset and wrote SQL queries to explore these topics  |  data manipulation
+[**Walmart Sales Analysis**](https://github.com/RSampson17/SQL/tree/main/Walmart%20Sales%20Analysis):  |  Manipulate the data to determine answers to questions and provide insight into the specific business area.  |  data manipulation, schema modification
+
+
+
