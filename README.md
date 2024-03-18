@@ -3,7 +3,7 @@
 ![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
 ![Hackerrank](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)
 
-#### [HackerRank SQL(2*)](https://www.hackerrank.com/profile/rich_sampson17)
+#### [HackerRank SQL(3*)](https://www.hackerrank.com/profile/rich_sampson17)
 
 Welcome to my personal SQL portfolio repository! Here you'll find a collection of SQL projects and queries I've worked on, showcasing my skills in data analysis and data manipulation using SQL.
 
