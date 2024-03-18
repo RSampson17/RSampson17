@@ -11,12 +11,6 @@ Welcome to my personal SQL portfolio repository! Here you'll find a collection o
 
  In this repository, you will find a variety of SQL projects, including:
 
-1. [**Final Project - Chinook**](https://github.com/RSampson17/SQL/blob/main/Final%20Project%20-%20Chinook):
-2. [**Fortune 500 Project**](https://github.com/RSampson17/SQL/blob/main/Fortune%20500%20Project):
-3. [**Superstore Project**](https://github.com/RSampson17/SQL/blob/main/Superstore%20Database):
-4. [**JOINS - HR Data**](https://github.com/RSampson17/SQL/blob/main/JOINS%20-%20HR%20Data):
-
-
 Project Name  | Description   |  Topic
 ------------- | ------------- | ------------------
 [**Final Project - Chinook**](https://github.com/RSampson17/SQL/blob/main/Final%20Project%20-%20Chinook):  | Wrote SQL queries to answer questions about various business inquries related to the Chinook dataset  | data manipulation, importing and cleaning data
