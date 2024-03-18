@@ -5,8 +5,6 @@ This purpose of this project was to demonstrate my skillset with JOINS
 Clean the HR Data dataset to properly format table and column names and ensure all data is complete. 
 Analyzed all 7 tables and wrote SQL queries to answer a multitude of questions.
 
-The following questions were resolved by queries I wrote.
-
 1. Write a query in SQL to display the first name, last name, department number, and department name for each employee. 
 2. Write a query in SQL to display the first and last name, department, city, and state province for each employee. 
 3. Write a query in SQL to display the first name, last name, salary, and job grade for all employees. 
