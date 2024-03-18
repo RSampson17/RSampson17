@@ -1,8 +1,10 @@
 ## Purpose
 Demonstrate SQL analysis skills with real-world questions.
 
+
 ## Requirements
 Manipulate the data to determine answers to questions and provide insight into the specific business area.
+
 
 
 ## List of Questions
