@@ -1,6 +1,8 @@
+## Purpose
+This project was completed as a final project to demonstrate skills aquired during the Break Into Tech Bootcamp. 
 
 ## Requirements
-Use the [Chinook Database](https://chinookdatabase.codeplex.com/) and the [DB Browser for SQLite](http://sqlitebrowser.org/).
+Use the [Chinook Database](https://github.com/lerocha/chinook-database/blob/master/ChinookDatabase/DataSources/Chinook_Sqlite.sql) and the [DB Browser for SQLite](http://sqlitebrowser.org/).
 
 For each of the following exercises, provide the appropriate query.
 
