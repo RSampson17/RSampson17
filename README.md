@@ -21,3 +21,5 @@ Project Name  | Description   |  Topic
 ------------- | ------------- | ------------------
 [**Final Project - Chinook**](https://github.com/RSampson17/SQL/blob/main/Final%20Project%20-%20Chinook):  | Wrote SQL queries to answer questions about various business inquries related to the Chinook dataset  | data manipulation, importing and cleaning data
 [**JOINS - HR Data**](https://github.com/RSampson17/SQL/blob/main/JOINS%20-%20HR%20Data): | Wrote SQL queries to answer questions about the data foudn within the HR Data dataset | data manipulation and joins
+[**Fortune 500 Project**](https://github.com/RSampson17/SQL/blob/main/Fortune%20500%20Project):
+[**Superstore Project**](https://github.com/RSampson17/SQL/blob/main/Superstore%20Database):
