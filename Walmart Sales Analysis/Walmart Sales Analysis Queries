@@ -127,3 +127,128 @@ SELECT product_line, ROUND(AVG(rating),2) as avg_rating
 FROM Walmart
 GROUP BY product_line
 ORDER BY avg_rating desc;
+
+/*C. Customer-related questions
+/*How many unique customer types does the data have?*/
+
+SELECT COUNT(DISTINCT(customer_type)) as count_customer_type
+FROM Walmart;
+
+
+/*How many unique payment methods does the data have?*/
+
+SELECT COUNT(DISTINCT(payment)) as count_payment_method
+FROM Walmart;
+
+
+/*What is the most common customer type?*/
+
+SELECT customer_type, COUNT(customer_type)
+FROM Walmart
+GROUP BY customer_type;
+
+/*Which customer type buys the most?*/
+
+SELECT customer_type, SUM(quantity)
+FROM Walmart
+GROUP BY customer_type
+ORDER BY SUM(quantity) desc;
+
+/*What is the gender of most of the customers?*/
+
+SELECT COUNT(gender), gender
+FROM Walmart
+GROUP BY gender;
+
+
+/*What is the gender distribution per branch?*/
+
+SELECT branch, gender, COUNT(gender)
+FROM Walmart
+GROUP BY branch,gender
+ORDER BY branch;
+
+/*ADD COLUMN FOR TIME OF DAY*/
+
+ALTER TABLE Walmart ADD COLUMN time_of_day VARCHAR(20);
+
+UPDATE Walmart
+SET time_of_day = (
+	CASE 
+		WHEN `time` BETWEEN "00:00:00" AND "12:00:00" THEN "Morning"
+		WHEN `time` BETWEEN "12:01:00" AND "16:00:00" THEN "Afternoon"
+		ELSE "Evening" 
+	END
+);
+
+SELECT time,
+(CASE 
+	WHEN `time` BETWEEN "00:00:00" AND "12:00:00" THEN "Morning"
+	WHEN `time` BETWEEN "12:01:00" AND "16:00:00" THEN "Afternoon"
+	ELSE "Evening" 
+END) AS time_of_day
+FROM Walmart;
+
+/*Which time of the day do customers give most ratings?*/
+
+SELECT time_of_day, COUNT(rating) AS Count_Rating
+FROM Walmart
+GROUP BY time_of_day
+ORDER BY time_of_day;
+
+/*Which time of the day do customers give most ratings per branch?*/
+
+SELECT time_of_day, branch, COUNT(rating) AS Count_Rating
+FROM Walmart
+GROUP BY time_of_day, branch
+ORDER BY Count_Rating desc;
+
+
+/*ADD COLUMN NAMED "DAY_OF_WEEK"*/
+
+ALTER TABLE Walmart
+ADD COLUMN day_name VARCHAR(20);
+
+UPDATE Walmart
+SET day_name = 
+    CASE 
+        WHEN strftime('%w', date) = '0' THEN 'Sunday'
+        WHEN strftime('%w', date) = '1' THEN 'Monday'
+        WHEN strftime('%w', date) = '2' THEN 'Tuesday'
+        WHEN strftime('%w', date) = '3' THEN 'Wednesday'
+        WHEN strftime('%w', date) = '4' THEN 'Thursday'
+        WHEN strftime('%w', date) = '5' THEN 'Friday'
+        WHEN strftime('%w', date) = '6' THEN 'Saturday'
+    END;
+
+/*Which day of the week has the best avg ratings?*/
+
+SELECT day_name, AVG(rating)
+FROM Walmart
+GROUP BY day_name
+ORDER BY AVG(rating) desc LIMIT 1;
+
+
+/*Which day of the week has the best average ratings per branch?*/
+
+SELECT day_name, branch, AVG(rating)
+FROM Walmart
+GROUP BY day_name, branch
+ORDER BY AVG(rating) desc, branch;
+
+
+/*D. Sales-related questions
+/*Number of sales made in each time of the day per weekday*/
+
+SELECT time_of_day, day_name, COUNT(total) as Number_of_sales
+FROM Walmart
+GROUP BY time_of_day, day_name
+ORDER BY day_name;
+
+/*Which of the customer types brings the most revenue?*/
+
+SELECT customer_type, SUM(quantity * unit_price) AS Revenue
+FROM Walmart
+GROUP BY customer_type
+ORDER BY Revenue desc;
+
