@@ -92,12 +92,19 @@ ORDER BY Total_VAT desc LIMIT 1;
 
 ALTER TABLE Walmart ADD COLUMN revenue_grade VARCHAR(10);
 
+UPDATE Walmart
+SET revenue_grade =
+    CASE WHEN  (SELECT SUM(unit_price * quantity)FROM Walmart) > (SELECT AVG(unit_price * quantity)FROM Walmart)  THEN "Good" 
+    ELSE "Bad"
+    END;
+
 SELECT product_line,
     CASE WHEN  SUM(unit_price * quantity) > AVG(unit_price * quantity)  THEN "Good" 
     ELSE "Bad"
     END AS Revenue_Grade
 FROM Walmart
 GROUP BY product_line;
+
 
 /*Which branch sold more products than average product sold?*/
 
