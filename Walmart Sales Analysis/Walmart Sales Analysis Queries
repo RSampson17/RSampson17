@@ -1,4 +1,4 @@
-/*##A. Generic Questions
+/*A. Generic Questions*/
 /*How many unique cities does the data have?*/
 
 SELECT COUNT(DISTINCT city), city
@@ -10,8 +10,7 @@ SELECT branch, city
 FROM Walmart
 GROUP BY branch, city;
 
-
-/*##B. Product-related questions
+/*B. Product-related questions*/
 /*How many unique product lines does the data have?*/
 
 SELECT COUNT(DISTINCT product_line)
@@ -108,16 +107,12 @@ GROUP BY branch
 HAVING COUNT(quantity) > AVG(quantity)
 ORDER BY COUNT(QUANTITY) DESC LIMIT 1;
 
-
-
 /*What is the most common product line by gender?*/
 
 SELECT product_line, COUNT(quantity) AS quantity_total, gender
 FROM Walmart
 GROUP BY product_line, gender
 ORDER BY quantity_total desc;
-
-
 
 /*What is the average rating of each product line?*/
 
