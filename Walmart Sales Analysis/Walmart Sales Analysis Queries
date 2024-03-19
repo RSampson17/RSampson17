@@ -1,0 +1,127 @@
+/*##A. Generic Questions
+/*How many unique cities does the data have?*/
+
+SELECT COUNT(DISTINCT city), city
+FROM Walmart;
+
+/*In which city is each branch?*/
+
+SELECT branch, city
+FROM Walmart
+GROUP BY branch, city;
+
+
+/*##B. Product-related questions
+/*How many unique product lines does the data have?*/
+
+SELECT COUNT(DISTINCT product_line)
+FROM Walmart;
+
+/*What is the most common payment method?*/
+
+SELECT COUNT(payment) as Count, payment
+FROM Walmart
+GROUP BY payment
+ORDER BY Count desc LIMIT 1;
+
+/*What is the most selling product line?*/
+
+SELECT product_line, quantity
+FROM Walmart
+GROUP BY product_line
+ORDER BY quantity desc LIMIT 1;
+
+
+/*ADD COLUMN NAMED "MONTH_NAME"*/
+
+ALTER TABLE Walmart ADD COLUMN month_name VARCHAR(10);
+
+UPDATE Walmart
+SET month_name = 
+    CASE 
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 1 THEN 'January'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 2 THEN 'February'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 3 THEN 'March'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 4 THEN 'April'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 5 THEN 'May'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 6 THEN 'June'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 7 THEN 'July'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 8 THEN 'August'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 9 THEN 'September'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 10 THEN 'October'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 11 THEN 'November'
+        WHEN CAST(SUBSTR(date, 6, 2) AS INTEGER) = 12 THEN 'December'
+        ELSE NULL
+    END;
+
+/*What is the total revenue by month?*/
+
+SELECT month_name, SUM(unit_price * quantity) as Revenue
+FROM Walmart
+GROUP BY month_name;
+
+/*What month had the largest COGS?*/
+
+SELECT SUM(cogs) as Total_cogs, month_name
+FROM Walmart
+GROUP BY month_name
+ORDER BY Total_cogs desc LIMIT 1;
+
+/*What product line had the largest revenue?*/
+
+SELECT product_line, SUM(unit_price * quantity) as Revenue
+FROM Walmart
+GROUP BY product_line
+ORDER BY Revenue desc LIMIT 1;
+
+/*What is the city with the largest revenue?*/
+
+SELECT city, SUM(unit_price * quantity) as Revenue
+FROM Walmart
+GROUP BY city
+ORDER BY Revenue desc LIMIT 1;
+
+/*What product line had the largest VAT?*/
+
+SELECT product_line, SUM(vat) AS Total_VAT
+FROM Walmart
+GROUP BY product_line
+ORDER BY Total_VAT desc LIMIT 1;
+
+
+/*Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales*/
+
+ALTER TABLE Walmart ADD COLUMN revenue_grade VARCHAR(10);
+
+SELECT product_line,
+    CASE WHEN  SUM(unit_price * quantity) > AVG(unit_price * quantity)  THEN "Good" 
+    ELSE "Bad"
+    END AS Revenue_Grade
+FROM Walmart
+GROUP BY product_line;
+
+/*Which branch sold more products than average product sold?*/
+
+SELECT branch,COUNT(quantity), ROUND(AVG(quantity),2)
+FROM Walmart
+GROUP BY branch
+HAVING COUNT(quantity) > AVG(quantity)
+ORDER BY COUNT(QUANTITY) DESC LIMIT 1;
+
+
+
+/*What is the most common product line by gender?*/
+
+SELECT product_line, COUNT(quantity) AS quantity_total, gender
+FROM Walmart
+GROUP BY product_line, gender
+ORDER BY quantity_total desc;
+
+
+
+/*What is the average rating of each product line?*/
+
+SELECT product_line, ROUND(AVG(rating),2) as avg_rating
+FROM Walmart
+GROUP BY product_line
+ORDER BY avg_rating desc;
